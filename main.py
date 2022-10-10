@@ -1,19 +1,19 @@
 from time import perf_counter
 
 def expt(x,n):
-  if n<0:
+  if n < 0:
     raise ValueError("n = {} is less than zero".format(n))
   
-  if n==0:
+  if n == 0:
     return 1
-  elif n%2==0:
+  elif n % 2 == 0:
     result=expt(x,n//2)
     return result*result
   else:
     return x * expt(x, n-1)
 
 def old_expt(x,n):
-  if n<0:
+  if n < 0:
     raise ValueError("n = {} is less than zero".format(n))
 
   result=1
@@ -23,12 +23,12 @@ def old_expt(x,n):
   return result
 
 def main():
-  n=17
-  x=10
+  n = 17
+  x = 10
   f = open("expt_data.csv", "w")
   f.write("exponent,min_runtime_old,min_runtime_new\n")
   for i in range(10000):
-    minimum_time=9999
+    minimum_time = 9999
     min2=9999
     for _ in range(x):
       current_time = perf_counter()
